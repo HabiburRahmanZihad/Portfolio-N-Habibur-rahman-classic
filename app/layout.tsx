@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Footer from "./components/Footer/Footer";
 import KeyboardNavigation from "./components/keyboardNavigation/KeyboardNavigation";
+import CustomCursor from "./components/shared/CustomCursor";
 import { Toaster } from "react-hot-toast";
 import ChatBotController from "./config/ChatBotController";
 const hankenGrotesk = Hanken_Grotesk({
@@ -32,8 +33,9 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className={`${hankenGrotesk.className} antialiased min-h-screen flex flex-col`}
+        className={`${hankenGrotesk.className} antialiased min-h-screen flex flex-col cursor-none`}
       >
+        <CustomCursor />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
