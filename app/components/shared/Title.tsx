@@ -38,18 +38,18 @@ const Title: React.FC<TitleProps> = ({ upperText, lowerText }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="relative pl-4 border-l-2 border-blue-600/30 dark:border-blue-500/20"
+      className="relative pl-6 border-l-4 border-blue-600 dark:border-blue-500"
     >
       <motion.p
         variants={itemVariants}
-        className="text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-widest mb-1"
+        className="text-blue-600 dark:text-blue-400 font-black text-[10px] uppercase tracking-[0.3em] mb-2 opacity-80"
       >
         {upperText}
       </motion.p>
 
       <motion.h2
         variants={itemVariants}
-        className="text-3xl sm:text-4xl font-black tracking-tight text-black dark:text-white"
+        className="text-4xl sm:text-5xl font-black tracking-tighter text-gradient-boss leading-none"
       >
         {lowerText}
       </motion.h2>

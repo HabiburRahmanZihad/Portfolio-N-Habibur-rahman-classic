@@ -33,8 +33,9 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className={`${hankenGrotesk.className} antialiased min-h-screen flex flex-col cursor-none`}
+        className={`${hankenGrotesk.className} antialiased min-h-screen flex flex-col cursor-none selection:bg-blue-500/30 selection:text-white`}
       >
+        <div className="noise-overlay" />
         <CustomCursor />
         <ThemeProvider
           attribute="class"

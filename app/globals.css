@@ -4,6 +4,7 @@
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-text-color: #909092;
   --color-main: #595959;
@@ -48,14 +49,77 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   /* Boss Developer Premium Utilities */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  --holographic-gradient: linear-gradient(135deg,
+      rgba(255, 0, 0, 0.1),
+      rgba(0, 255, 0, 0.1),
+      rgba(0, 0, 255, 0.1));
 }
 
 .dark {
-  --glass-bg: rgba(23, 23, 23, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(10, 10, 10, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --holographic-gradient: linear-gradient(135deg,
+      rgba(255, 0, 0, 0.15),
+      rgba(0, 255, 255, 0.15),
+      rgba(255, 0, 255, 0.15));
+}
+
+/* Boss Mode 2.0: Ultimate Textures */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.holo-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.holo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--holographic-gradient);
+  mix-blend-mode: overlay;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.holo-card:hover::after {
+  opacity: 1;
+  animation: holo-slide 3s infinite linear;
+}
+
+@keyframes holo-slide {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 200% 200%;
+  }
+}
+
+.text-gradient-boss {
+  background: linear-gradient(to bottom right, #000, #666);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .text-gradient-boss {
+  background: linear-gradient(to bottom right, #fff, #999);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 :root {
@@ -131,6 +195,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -138,37 +203,13 @@
 
 @layer components {
   .btn-design {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap
-           rounded-md text-sm font-medium transition-all
-           disabled:pointer-events-none disabled:opacity-50
-           outline-none shrink-0 border bg-background
-           hover:bg-accent hover:text-accent-foreground
-           focus-visible:border-ring focus-visible:ring-ring/50
-           focus-visible:ring-[3px]
-           aria-invalid:border-destructive
-           aria-invalid:ring-destructive/20
-           dark:aria-invalid:ring-destructive/40
-           dark:bg-input/30 dark:border-input dark:hover:bg-input/50
-            py-2 px-3 sm:px-10
-           shadow-[inset_0_0_15px_rgba(0,0,0,0.08)]
-           inset-shadow-indigo-500;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none shrink-0 border bg-background hover:bg-accent hover:text-accent-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 dark:bg-input/30 dark:border-input dark:hover:bg-input/50 py-2 px-3 sm:px-10 shadow-[inset_0_0_15px_rgba(0, 0, 0, 0.08)] inset-shadow-indigo-500;
   }
+
   .keyboard-button {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap
-           rounded-md text-sm font-medium transition-all
-           disabled:pointer-events-none disabled:opacity-50
-           outline-none shrink-0 border bg-background
-           hover:bg-accent hover:text-accent-foreground
-           focus-visible:border-ring focus-visible:ring-ring/50
-           focus-visible:ring-[3px] cursor-pointer
-           aria-invalid:border-destructive
-           aria-invalid:ring-destructive/20
-           dark:aria-invalid:ring-destructive/40 
-           dark:bg-input/30 dark:border-input dark:hover:bg-input/50
-           h-9 py-4.5 px-2 
-           shadow-[inset_0_0_15px_rgba(0,0,0,0.08)]
-           inset-shadow-indigo-500;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none shrink-0 border bg-background hover:bg-accent hover:text-accent-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] cursor-pointer aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 py-4.5 px-2 shadow-[inset_0_0_15px_rgba(0, 0, 0, 0.08)] inset-shadow-indigo-500;
   }
+
   .keyboard-key {
     @apply p-[3px] bg-[#F2F2F2] dark:bg-[#2A2A2B] group-hover:bg-gray-200/80 dark:group-hover:bg-[#2A2A2B] text-text-color rounded-[3px];
   }
@@ -194,7 +235,7 @@ mark[data-highlighted-chars] {
   background-color: #808080a8;
 }
 
-code[data-line-numbers] > [data-line]::before {
+code[data-line-numbers]>[data-line]::before {
   counter-increment: line;
   content: counter(line);
   display: inline-block;
@@ -204,15 +245,15 @@ code[data-line-numbers] > [data-line]::before {
   color: gray;
 }
 
-code[data-line-numbers-max-digits="2"] > [data-line]::before {
+code[data-line-numbers-max-digits="2"]>[data-line]::before {
   width: 1.25rem;
 }
 
-code[data-line-numbers-max-digits="3"] > [data-line]::before {
+code[data-line-numbers-max-digits="3"]>[data-line]::before {
   width: 1.75rem;
 }
 
-code[data-line-numbers-max-digits="4"] > [data-line]::before {
+code[data-line-numbers-max-digits="4"]>[data-line]::before {
   width: 2.25rem;
 }
 

@@ -65,106 +65,108 @@ export function ExperiencePositionItem({ project }: { project: Project }) {
 
   return (
     <Collapsible defaultOpen={false} asChild>
-      <div className="relative group/card transition-all duration-300">
+      <div className="relative group/card transition-all duration-500 mb-4">
         <CollapsibleTrigger
           className={cn(
-            "group/experience not-prose block w-full text-left select-none relative z-10",
-            "p-3 rounded-2xl border border-transparent hover:border-white/10 hover:bg-neutral-50/50 dark:hover:bg-white/[0.03] transition-all duration-500"
+            "group/experience not-prose block w-full text-left select-none relative z-10 holo-card",
+            "p-5 rounded-3xl border border-neutral-200/50 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-md hover:border-blue-500/30 dark:hover:border-blue-500/20 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-700 hover:-translate-y-1"
           )}
         >
-          <div className="flex items-center gap-4">
-            {/* Icon with Glow */}
-            <div className="relative flex size-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 transition-transform group-hover/experience:scale-110 duration-300 shadow-sm border border-blue-100/50 dark:border-blue-800/20">
-              <ExperienceIcon className="size-5" />
+          <div className="flex items-center gap-6">
+            {/* Icon with Dynamic Glow */}
+            <div className="relative flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 text-blue-600 dark:text-blue-400 transition-all group-hover/experience:rotate-12 group-hover/experience:scale-110 duration-500 shadow-sm border border-blue-100/50 dark:border-blue-800/20">
+              <ExperienceIcon className="size-7" />
             </div>
 
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-2">
-                <h4 className="text-lg font-bold tracking-tight text-foreground truncate">
+                <h4 className="text-xl font-black tracking-tight text-gradient-boss truncate">
                   {project.name}
                 </h4>
 
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex items-center gap-3 shrink-0">
                   <Link
                     href={`project/${project.name.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="flex items-center gap-1 text-xs font-semibold text-neutral-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider"
+                    className="flex items-center gap-1.5 text-xs font-black text-neutral-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-[0.2em]"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    View details
+                    Details
                     <GoArrowRight size={14} />
                   </Link>
 
-                  <div className="h-3 w-[1px] bg-neutral-200 dark:bg-neutral-800" />
+                  <div className="h-4 w-[1px] bg-neutral-200 dark:bg-neutral-800" />
 
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <a
                         href={project.liveLink}
                         target="_blank"
-                        className="rounded-full p-1 text-neutral-500 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+                        className="rounded-full p-2 text-neutral-500 transition-all hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:scale-110"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <BiWorld size={18} />
+                        <BiWorld size={20} />
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top">
-                      <p className="text-xs font-bold">Live Preview</p>
+                      <p className="text-[10px] font-black uppercase tracking-widest">Live Experience</p>
                     </TooltipContent>
                   </Tooltip>
                 </div>
               </div>
 
               {/* Meta Tags */}
-              <div className="flex items-center gap-3 mt-1 text-xs font-medium text-neutral-500 dark:text-neutral-400">
-                <span className="px-2 py-0.5 rounded-md bg-neutral-100 dark:bg-neutral-800/50 border border-neutral-200 dark:border-white/5 uppercase tracking-tight">
+              <div className="flex items-center gap-4 mt-2 text-xs font-black uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+                <span className="text-blue-600 dark:text-blue-400">
                   {project.projectType}
                 </span>
-                <span className="w-1 h-1 rounded-full bg-neutral-300 dark:bg-neutral-600" />
-                <span>{project.teamProject ? "Team Project" : "Solo Project"}</span>
+                <span className="w-1 h-1 rounded-full bg-neutral-300 dark:bg-neutral-700" />
+                <span>{project.teamProject ? "Collaborative" : "Individual"}</span>
               </div>
             </div>
 
             {/* Expand Indicator */}
-            <div className="text-neutral-400 group-hover/experience:text-blue-500 transition-colors">
-              <ChevronsDownUpIcon className="size-5 hidden group-data-[state=open]/experience:block" />
-              <ChevronsUpDownIcon className="size-5 block group-data-[state=open]/experience:none" />
+            <div className="text-neutral-300 group-hover/experience:text-blue-500 transition-all duration-500 transform group-hover/experience:translate-x-1">
+              <ChevronsDownUpIcon className="size-6 hidden group-data-[state=open]/experience:block animate-pulse" />
+              <ChevronsUpDownIcon className="size-6 block group-data-[state=open]/experience:none" />
             </div>
           </div>
         </CollapsibleTrigger>
 
-        <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down pt-2">
-          <div className="pl-14 pr-4 pb-4 space-y-6">
+        <CollapsibleContent className="overflow-hidden duration-500 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down mt-2">
+          <div className="pl-[88px] pr-5 pb-6 space-y-8 relative before:absolute before:left-12 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-blue-500/20 before:to-transparent">
             <Prose>
-              <div className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
+              <div className="text-neutral-600 dark:text-neutral-400 text-base leading-relaxed font-light">
                 <ReactMarkdown>
                   {project.description}
                 </ReactMarkdown>
               </div>
             </Prose>
 
-            <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-black dark:text-white mb-3 flex items-center gap-2">
-                <div className="w-1.5 h-4 bg-blue-600 dark:bg-blue-500 rounded-full" />
-                Technical Stack
+            <div className="space-y-4">
+              <h3 className="text-xs font-black uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-blue-500/30" />
+                Core Technologies
               </h3>
-              <ul className="flex flex-wrap gap-2">
+              <ul className="flex flex-wrap gap-2.5">
                 {project.techStack.map((skill, index) => (
                   <li key={index}>
-                    <Skill>{skill}</Skill>
+                    <Skill className="px-3 py-1 bg-white dark:bg-white/[0.03] border-blue-500/10 dark:border-white/5 text-blue-600 dark:text-blue-400 shadow-sm font-black text-[10px] uppercase tracking-wider">
+                      {skill}
+                    </Skill>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="p-4 rounded-xl bg-neutral-50 dark:bg-white/[0.02] border border-neutral-100 dark:border-white/5">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-black dark:text-white mb-3">
-                Key Features
+            <div className="p-6 rounded-2xl bg-neutral-50/50 dark:bg-white/[0.01] border border-neutral-100 dark:border-white/5 space-y-4">
+              <h3 className="text-xs font-black uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500">
+                Key Deliverables
               </h3>
-              <ul className="grid grid-cols-1 gap-2">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {project.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                    {feature}
+                  <li key={index} className="flex items-start gap-3 text-sm text-neutral-600 dark:text-neutral-400 group/feature">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500/40 group-hover/feature:bg-blue-500 transition-colors shrink-0 shadow-[0_0_8px_rgba(59,130,246,0)] group-hover/feature:shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
+                    <span className="font-light">{feature}</span>
                   </li>
                 ))}
               </ul>
