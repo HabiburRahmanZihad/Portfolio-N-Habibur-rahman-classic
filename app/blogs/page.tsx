@@ -7,7 +7,7 @@ import PageHeader from "../components/PageHeader/PageHeader";
 
 
 const dirContent = fs.readdirSync("content", "utf-8");
-export const blogs: BlogPostMeta[] = dirContent.map((file) => {
+const blogs: BlogPostMeta[] = dirContent.map((file) => {
   const fileContent = fs.readFileSync(`content/${file}`, "utf-8");
   const { data } = matter(fileContent);
   return data as BlogPostMeta;

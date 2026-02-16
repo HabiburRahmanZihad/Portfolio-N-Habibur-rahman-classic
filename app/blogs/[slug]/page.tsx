@@ -15,7 +15,7 @@ import Link from "next/link";
 import OnThisPage from "@/app/components/OnThisPage/OnThisPage";
 import { RiArrowGoBackFill } from "react-icons/ri";
 
-const Page = async ({ params }: { params: { slug: string } }) => {
+const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const filePath = `content/${slug}.md`;
   if (!fs.existsSync(filePath)) {
