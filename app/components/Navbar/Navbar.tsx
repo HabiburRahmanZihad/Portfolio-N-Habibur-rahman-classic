@@ -69,35 +69,43 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-transparent sticky top-0 backdrop-blur-sm  z-50">
+      <header className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-white/[0.6] dark:bg-black/[0.6] backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/60 shadow-sm transition-all duration-300">
         <div className="max-w-[720px] mx-auto flex py-3 px-4 sm:px-0 items-center justify-between">
           <div>
             <Logo />
           </div>
 
           {/* Desktop Links */}
-          <div className="md:flex items-center hidden">
+          <div className="md:flex items-center space-x-1 hidden">
             {navItems.map((item, idx) => (
               <Link
                 href={item.href}
                 key={item.id}
                 onMouseEnter={() => setHovered(idx)}
                 onMouseLeave={() => setHovered(null)}
-                className="relative px-2.5 py-1 "
+                className="relative px-3 py-1.5 transition-colors group"
               >
                 {hovered === idx && (
                   <motion.span
-                    className="absolute inset-0 h-full w-full rounded-sm bg-neutral-100 dark:bg-second-dark"
+                    className="absolute inset-0 h-full w-full rounded-md bg-neutral-100 dark:bg-neutral-800/50"
                     layoutId="hovered-span"
                   />
                 )}
                 <span
-                  className={`relative z-10 ${
-                    item.href === pathname ? "font-semibold" : ""
-                  }`}
+                  className={`relative z-10 text-sm font-medium transition-colors ${item.href === pathname
+                      ? "text-blue-600 dark:text-blue-400"
+                      : "text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white"
+                    }`}
                 >
                   {item.label}
                 </span>
+
+                {item.href === pathname && (
+                  <motion.div
+                    layoutId="active-nav-indicator"
+                    className="absolute -bottom-[1px] left-0 right-0 h-[2px] bg-blue-600 dark:bg-blue-400 rounded-full mx-3"
+                  />
+                )}
               </Link>
             ))}
           </div>

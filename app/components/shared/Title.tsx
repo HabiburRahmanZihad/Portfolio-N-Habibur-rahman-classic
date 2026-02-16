@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion,Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface TitleProps {
   upperText: React.ReactNode;
@@ -16,7 +16,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants:Variants = {
+const itemVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 10,
@@ -38,20 +38,21 @@ const Title: React.FC<TitleProps> = ({ upperText, lowerText }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
+      className="relative pl-4 border-l-2 border-blue-600/30 dark:border-blue-500/20"
     >
       <motion.p
         variants={itemVariants}
-        className="text-text-color font-medium"
+        className="text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-widest mb-1"
       >
         {upperText}
       </motion.p>
 
-      <motion.p
+      <motion.h2
         variants={itemVariants}
-        className=" text-2xl font-bold"
+        className="text-3xl sm:text-4xl font-black tracking-tight text-black dark:text-white"
       >
         {lowerText}
-      </motion.p>
+      </motion.h2>
     </motion.div>
   );
 };
