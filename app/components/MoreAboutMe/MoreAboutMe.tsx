@@ -42,7 +42,7 @@ const MoreAboutMe = () => {
     },
     {
       icon: <MdOutlineMail size={19} color="gray" />,
-      text: "zihad.habiburrahman@gmail.com",
+      text: "e241024@ugrad.iiuc.ac.bd",
     },
     {
       icon: <LuCodeXml size={19} color="gray" />,

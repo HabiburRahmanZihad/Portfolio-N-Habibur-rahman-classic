@@ -45,7 +45,7 @@ const KeyboardNavigation = () => {
         router.push("https://x.com/HabiburRahmanZ");
       }
       if (e.shiftKey && e.key.toLocaleLowerCase() === "e") {
-        navigator.clipboard.writeText("zihad.habiburrahman@gmail.com");
+        navigator.clipboard.writeText("e241024@ugrad.iiuc.ac.bd");
         toast.success('Email copied!')
       }
     };

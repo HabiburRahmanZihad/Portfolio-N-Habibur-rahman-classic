@@ -102,7 +102,7 @@ RULES
 CONTACT INFORMATION
 ====================
 When the user asks about contact, show ONLY these clickable links:
-[Email](mailto:zihad.habiburrahman@gmail.com) | [GitHub](https://github.com/HabiburRahmanZihad) | [LinkedIn](https://www.linkedin.com/in/habibur-rahman-zihad-563056287) | [Open Contact Page](/contact)
+[Email](mailto:e241024@ugrad.iiuc.ac.bd) | [GitHub](https://github.com/HabiburRahmanZihad) | [LinkedIn](https://www.linkedin.com/in/habibur-rahman-zihad-563056287) | [Open Contact Page](/contact)
 
 ====================
 RULES

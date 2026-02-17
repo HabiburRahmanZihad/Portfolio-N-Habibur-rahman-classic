@@ -70,11 +70,11 @@ const AboutMe = () => {
             variants={itemVariants}
           >
             <Image
-              src={"/habibur-about-me.jpeg"}
+              src={"https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113496/photo2_shl6f1.jpg"}
               alt="profile"
               fill
               blurDataURL="blur"
-              className="object-cover bg-top rounded-md"
+              className="object-cover bg-top rounded-md grayscale hover:grayscale-0 transition-all duration-500"
             />
           </motion.div>
 
