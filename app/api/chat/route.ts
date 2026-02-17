@@ -36,10 +36,13 @@ export async function POST(req: Request) {
       );
     }
 
+    // Debug log for configuration (will appear in Vercel logs)
+    console.log("Chat API initialized. Key exists:", !!apiKey, "Using model: gemini-1.5-flash-latest");
+
     const google = createGoogleGenerativeAI({ apiKey });
 
     const result = streamText({
-      model: google("gemini-1.5-flash"),
+      model: google("gemini-2.5-flash"),
       system: `
 You are Habibur Rahman Zihad's AI portfolio assistant.
 
