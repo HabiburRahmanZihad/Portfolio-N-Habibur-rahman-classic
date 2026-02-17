@@ -22,12 +22,6 @@ const shortCuts = [
         key: "H",
       },
       {
-        icon: <IoBookOutline size={20} color="gray" />,
-        title: "Go to Blogs",
-        description: "browse all blogs",
-        key: "B",
-      },
-      {
         icon: <IoIosCall size={20} color="gray" />,
         title: "Go to contact",
         description: "View Contact Info",

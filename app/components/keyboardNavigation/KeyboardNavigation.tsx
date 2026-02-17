@@ -12,9 +12,6 @@ const KeyboardNavigation = () => {
       const target = e.target as HTMLElement;
       if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") return;
 
-      if (e.key.toLowerCase() === "b" && pathname !== "/blogs") {
-        router.push("/blogs");
-      }
       if (e.key.toLocaleLowerCase() === "c" && pathname !== "/contact") {
         router.push("/contact");
       }

@@ -37,11 +37,6 @@ const Navbar = () => {
       href: "/projects",
     },
     {
-      id: 2,
-      label: "Blogs",
-      href: "/blogs",
-    },
-    {
       id: 3,
       label: "Contact",
       href: "/contact",

@@ -1,6 +1,5 @@
 import Projects from "./components/projects/Projects";
 import AboutMe from "./components/aboutme/AboutMe";
-import FeaturedBlogs from "./components/FeaturedBlogs/FeaturedBlogs";
 import Hero from "./components/Hero/Hero";
 import GithubActivity from "./components/github/GithubActivity";
 import Certificate from "./components/FeaturedCertificate/Certificate";
@@ -13,11 +12,10 @@ export default function Home() {
       <Hero />
       <Projects />
       <AboutMe />
-      <MoreAboutMe/>
+      <MoreAboutMe />
       <GithubActivity />
-      <FeaturedBlogs />
-      <ChatWithMe/>
-      <Certificate/>
+      <ChatWithMe />
+      <Certificate />
     </div>
   );
 }
