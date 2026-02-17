@@ -35,7 +35,7 @@ const ChatWithMe = () => {
                   width={32}
                   height={32}
                   className="object-cover bg-center border-2 rounded-full"
-                  src={"/logo.png"}
+                  src={"/logo/withBorder.png"}
                   alt="Logo"
                 />
 
