@@ -46,7 +46,7 @@ const MoreAboutMe = () => {
     },
     {
       icon: <LuCodeXml size={19} color="gray" />,
-      text: "MERN Stack Developer",
+      text: "Full Stack Developer",
     },
     {
       icon: <CgGenderMale size={19} color="gray" />,

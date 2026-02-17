@@ -90,7 +90,7 @@ const AboutMe = () => {
               variants={itemVariants}
               className="font-medium text-text-color"
             >
-              I am a MERN Stack Developer driven by the goal of building scalable, high-performance web applications that solve real-world problems. I specialize in crafting pixel-perfect, responsive UIs and robust server architectures. I&apos;m constantly learning and exploring new technologies like Next.js and DevOps to deliver top-notch full-stack solutions.
+              I am a Full Stack Developer driven by the goal of building scalable, high-performance web applications that solve real-world problems. I specialize in crafting pixel-perfect, responsive UIs and robust server architectures. I&apos;m constantly learning and exploring new technologies like Next.js and DevOps to deliver top-notch full-stack solutions.
             </motion.p>
 
             {/* Open Modal Button */}
@@ -140,7 +140,7 @@ const AboutMe = () => {
               </div>
 
               <p className="text-sm leading-relaxed text-text-color">
-                My journey into the world of web development was fueled by a deep passion for technology and its potential to solve real-world problems. I started by mastering the fundamentals of HTML, CSS, and JavaScript, and soon found myself captivated by the power of the MERN stack. Over time, I&apos;ve honed my skills in building robust APIs, crafting intuitive user interfaces, and exploring the vast possibilities of modern web frameworks like Next.js. My mission is to continuously innovate and build applications that make a positive impact.
+                My journey into the world of web development was fueled by a deep passion for technology and its potential to solve real-world problems. I started by mastering the fundamentals of HTML, CSS, and JavaScript, and soon found myself captivated by the power of Full Stack development. Over time, I&apos;ve honed my skills in building robust APIs, crafting intuitive user interfaces, and exploring the vast possibilities of modern web frameworks like Next.js. My mission is to continuously innovate and build applications that make a positive impact.
               </p>
             </motion.div>
           </motion.div>

@@ -60,7 +60,7 @@ export const allProjects: Project[] = [
   },
   {
     id: 2,
-    img: "/tazarate.png",
+    img: "/Projects/TazaRate.png",
     name: "TazaRate",
     teamProject: false,
     shortDescription: "A local market price tracking platform for vendors and consumers.",
@@ -94,7 +94,7 @@ export const allProjects: Project[] = [
   },
   {
     id: 3,
-    img: "/healio.png",
+    img: "/Projects/Healio_IMG.png",
     name: "Healio",
     teamProject: false,
     shortDescription: "A comprehensive healthcare ecosystem for customers and pharmacies.",
@@ -128,7 +128,7 @@ export const allProjects: Project[] = [
   },
   {
     id: 4,
-    img: "/readrack.png",
+    img: "/Projects/ReadRack.png",
     name: "ReadRack",
     teamProject: false,
     shortDescription: "A digital library management system with advanced search and reviews.",
@@ -161,7 +161,7 @@ export const allProjects: Project[] = [
   },
   {
     id: 5,
-    img: "/gradify.png",
+    img: "/Projects/GradifyWeb.png",
     name: "Gradify",
     teamProject: false,
     shortDescription: "An all-in-one student management and productivity system.",

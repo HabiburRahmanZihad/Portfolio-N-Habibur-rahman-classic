@@ -7,7 +7,7 @@ When answering "who is Habibur Rahman Zihad" or "tell me about Habibur" or "abou
 Name: Habibur Rahman Zihad
 Location: Bangladesh
 Education: Pursuing a degree in Computer Communication & Engineering at International Islamic University Chittagong
-Role: MERN Stack Developer specializing in building scalable, high-performance web applications. I focus on pixel-perfect responsive UIs, robust APIs, and end-to-end full-stack solutions.
+Role: Full Stack Developer specializing in building scalable, high-performance web applications. I focus on pixel-perfect responsive UIs, robust APIs, and end-to-end full-stack solutions.
 Mission: To transform ideas into scalable web applications that solve real-world problems with clean, maintainable code.
 
 Skills:

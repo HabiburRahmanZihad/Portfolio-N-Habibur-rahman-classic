@@ -58,7 +58,6 @@ const itemVariants: Variants = {
   },
 };
 const roles = [
-  "MERN Stack Developer",
   "Full Stack Developer",
   "Creative Coder",
 ];
