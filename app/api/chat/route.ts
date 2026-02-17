@@ -39,8 +39,7 @@ export async function POST(req: Request) {
     const google = createGoogleGenerativeAI({ apiKey });
 
     const result = streamText({
-      model: google("gemini-2.5-flash-lite"),
-      // model: google("gemini-2.5-flash"),
+      model: google("gemini-1.5-flash"),
       system: `
 You are Habibur Rahman Zihad's AI portfolio assistant.
 
