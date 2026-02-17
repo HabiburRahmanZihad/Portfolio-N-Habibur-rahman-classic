@@ -48,8 +48,8 @@ function CertificateItem({
   return (
     <motion.div
       className="space-y-4 py-4"
-      initial={{ opacity: 0, scale:0.8 }}
-      whileInView={{ opacity: 1, scale:1 }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.25, ease: "easeOut", delay: index * 0.05 }}
     >
@@ -87,7 +87,7 @@ function CertificatePositionItem({ cert }: { cert: Certificate }) {
               target="_blank"
               className="group flex items-center gap-1 hover:underline text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              Certificate
+              View Certificate
             </Link>
             <div className="text-muted-foreground [&_svg]:size-4">
               <ChevronsDownUpIcon className="hidden group-data-[state=open]/certificate:block" />
