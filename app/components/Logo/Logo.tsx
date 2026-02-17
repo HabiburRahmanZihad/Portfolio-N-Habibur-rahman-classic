@@ -8,7 +8,7 @@ export default function Logo() {
         width={48}
         height={48}
         className="object-cover bg-center border-2 rounded-full hover:scale-90 duration-200 transition-all"
-        src={"/logo.png"}
+        src={"/logo/noBorder.png"}
         alt="Logo"
       />
     </Link>
