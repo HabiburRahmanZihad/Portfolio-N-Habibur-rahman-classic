@@ -11,7 +11,7 @@ const TechButton: React.FC<TechProps> = ({ icon: Icon, name, href }) => {
     <a
       target="_blank"
       href={href}
-      className="inline-flex  shadow-[inset_0_0_15px_rgba(0,0,0,0.15)] items-center border-dashed dark:text-white text-sm font-bold border-2 py-0.5 px-1.5 text-black rounded-lg bg-second dark:bg-second-dark gap-2"
+      className="inline-flex items-center border-neutral-300 dark:border-neutral-700 dark:text-neutral-100 text-neutral-900 text-sm font-bold border py-0.5 px-2 rounded-md bg-neutral-100 dark:bg-neutral-900 gap-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors shadow-sm"
     >
       <Icon className="w-4 h-4" /> {name}
     </a>

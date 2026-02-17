@@ -72,6 +72,8 @@ const Hero = () => {
     }, 2000);
     return () => clearInterval(interval);
   }, []);
+
+
   return (
     <motion.div
       variants={containerVariants}
@@ -80,14 +82,11 @@ const Hero = () => {
       viewport={{ once: true }}
       className="relative overflow-hidden"
     >
-      {/* Background blobs for depth */}
-      <div className="absolute top-[-10%] left-[-5%] w-64 h-64 bg-blue-600/5 dark:bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[-5%] w-64 h-64 bg-indigo-600/5 dark:bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Decorative circuit animation */}
       <motion.div
         variants={itemVariants}
-        className="absolute sm:top-56 top-[325px] right-0 opacity-40 dark:opacity-60 pointer-events-none"
+        className="absolute  top-81.25 right-0 opacity-40 dark:opacity-60 pointer-events-none"
       >
         <CircuitMini />
       </motion.div>
@@ -100,15 +99,12 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            {/* Holographic Ring */}
-            <div className="absolute -inset-2 rounded-full opacity-40 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-400 blur-md animate-[spin_4s_linear_infinite]" />
-            <div className="absolute -inset-1 rounded-full bg-white dark:bg-black z-0 shadow-2xl" />
 
-            <div className="relative p-1 bg-white dark:bg-black rounded-full overflow-hidden z-10 border border-white/20 dark:border-white/10">
+            <div className="relative p-1.5 bg-neutral-100 dark:bg-neutral-900 rounded-full overflow-hidden z-10 border-2 border-neutral-200 dark:border-neutral-800 shadow-xl">
               <Image
                 width={160}
                 height={160}
-                className="object-cover w-32 h-32 sm:w-44 sm:h-44 rounded-full grayscale hover:grayscale-0 transition-all duration-700 ease-in-out scale-105 group-hover:scale-110"
+                className="object-cover w-32 h-32 sm:w-44 sm:h-44 rounded-full grayscale hover:grayscale-0 transition-all duration-700 ease-in-out scale-105 group-hover:scale-100"
                 src="https://res.cloudinary.com/dvq3pcykn/image/upload/v1758785330/IMG-20241101-WA0192_vyojiv.jpg"
                 alt="Habibur Rahman"
                 priority
@@ -121,8 +117,8 @@ const Hero = () => {
               variants={itemVariants}
               className="flex items-center gap-3 mb-3"
             >
-              <h1 className="font-black text-4xl sm:text-6xl tracking-tight text-gradient-boss">
-                Habibur <span className="inline-block align-middle"><RiVerifiedBadgeFill size={32} className="text-blue-500" /></span>
+              <h1 className="font-black text-4xl sm:text-6xl tracking-tight text-neutral-900 dark:text-neutral-100">
+                Habibur <span className="inline-block align-middle ml-1"><RiVerifiedBadgeFill size={32} className="text-blue-500" /></span>
               </h1>
             </motion.div>
 
@@ -162,8 +158,7 @@ const Hero = () => {
             icon={TypeScript}
             name={typeScript.name}
             href={typeScript.doc}
-          />{" "}
-          & <TechButton icon={Nextjs} name={next.name} href={next.doc} />.
+          />, <TechButton icon={Nextjs} name={next.name} href={next.doc} />, <TechButton icon={Expressjs} name={express.name} href={express.doc} /> & <TechButton icon={PostgreSQL} name={postgreSql.name} href={postgreSql.doc} />.
         </motion.p>
 
         <motion.div variants={itemVariants} className="mt-10">
@@ -171,27 +166,35 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="mt-12 flex flex-wrap items-center gap-4 sm:gap-6"
+          className="mt-12 flex flex-wrap items-center gap-5 sm:gap-6"
           variants={itemVariants}
         >
-          <motion.div whileHover={{ y: -5 }} whileTap={{ scale: 0.98 }}>
-            <Link href={"/resume"} className="group relative px-10 py-4 bg-black dark:bg-white text-white dark:text-black rounded-2xl font-black text-lg overflow-hidden transition-all shadow-2xl shadow-blue-500/20 active:shadow-none">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="relative z-10 flex items-center gap-3 group-hover:text-white transition-colors duration-300">
-                <Newspaper size={24} /> Download CV
-              </span>
+          <motion.div
+            whileHover={{ y: -4, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex-shrink-0"
+          >
+            <Link
+              href="https://drive.google.com/file/d/1sOZMoUF9WEzITXZadlfNlYvSajeJ7AkL/view?usp=sharing"
+              target="_blank"
+              className="inline-flex items-center gap-3 px-10 py-4 bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 rounded-full font-black text-lg transition-all shadow-xl hover:shadow-2xl active:shadow-md"
+            >
+              <Newspaper size={24} className="shrink-0" />
+              <span>Download CV</span>
             </Link>
           </motion.div>
 
-          <motion.div whileHover={{ y: -5 }} whileTap={{ scale: 0.98 }}>
+          <motion.div
+            whileHover={{ y: -4, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex-shrink-0"
+          >
             <Link
               href={"/contact"}
-              className="group px-10 py-4 border-2 border-neutral-200 dark:border-white/10 rounded-2xl font-black text-lg hover:bg-neutral-50 dark:hover:bg-white/5 transition-all"
+              className="inline-flex items-center gap-3 px-10 py-4 border-2 border-neutral-900 dark:border-neutral-100 text-neutral-900 dark:text-neutral-100 rounded-full font-black text-lg transition-all hover:bg-neutral-900 hover:text-white dark:hover:bg-neutral-100 dark:hover:text-black shadow-sm hover:shadow-lg"
             >
-              <span className="flex items-center gap-3">
-                <Send size={22} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-blue-500" />
-                Hire Me
-              </span>
+              <Send size={22} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform shrink-0" />
+              <span>Hire Me</span>
             </Link>
           </motion.div>
         </motion.div>

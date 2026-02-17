@@ -1,5 +1,4 @@
 "use client";
-import Discord from "@/components/svgs/Discord";
 import Facebook from "@/components/svgs/Facebook";
 import GitHub from "@/components/svgs/Github";
 import LinkedIn from "@/components/svgs/Linkedin";
@@ -15,13 +14,13 @@ const SocialIcons = () => {
     {
       id: 1,
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/habibur-rahman-zihad-563056287",
+      url: "https://linkedin.com/in/habiburrahmanzihad",
       icon: <LinkedIn className="size-5" />,
     },
     {
       id: 2,
       name: "Twitter",
-      url: "https://x.com/HabiburRahmanZ",
+      url: "https://x.com/xihad_xihad",
       icon: <XformerlyTwitter className="size-5 " />,
     },
     {
@@ -33,21 +32,15 @@ const SocialIcons = () => {
     {
       id: 6,
       name: "WhatsApp",
-      url: "https://wa.me/8801735166610", // Keeping the same as I don't have Habibur's specific one, or assuming it's the same if it's the same contact phone. Actually, Habibur's phone wasn't explicitly found, but one github listed a phone link. I'll search for his phone if possible.
+      url: "https://wa.me/88013294535**",
       icon: <WhatsApp className="size-5" />,
     },
     {
       id: 4,
       name: "Facebook",
-      url: "https://www.facebook.com/HabiburRahmanZihad",
+      url: "https://www.facebook.com/habiburrahmanzihad.zihad",
       icon: <Facebook className="size-5" />,
-    },
-    {
-      id: 5,
-      name: "Discord",
-      url: "https://discord.com/users/Habibur#1234", // Placeholder if not found
-      icon: <Discord className="size-5" />,
-    },
+    }
   ];
 
   return (
@@ -58,7 +51,7 @@ const SocialIcons = () => {
           <a href={skill.url} target="_blank" key={index}>
             <motion.div
               layout
-              className="border dark:border-neutral-700 p-1.5 rounded-full bg-white dark:bg-black flex cursor-pointer overflow-hidden"
+              className="border border-neutral-300 dark:border-neutral-800 p-1.5 rounded-full bg-neutral-100 dark:bg-neutral-900 flex cursor-pointer overflow-hidden shadow-sm"
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
               animate={{ opacity: isHovered ? 1 : 0.85 }}

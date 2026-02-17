@@ -163,7 +163,7 @@ const paths = [
 
 export default function CircuitMini() {
   return (
-    <div className="w-32 sm:w-48 h-32 sm:h-40 relative overflow-hidden">
+    <div className="w-32 sm:w-50 h-32 sm:h-50 relative overflow-hidden">
       <svg
         viewBox="0 0 220 220"
         className="w-full h-full block"
