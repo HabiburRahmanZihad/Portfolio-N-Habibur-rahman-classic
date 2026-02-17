@@ -362,10 +362,11 @@ export default function Chat() {
                               {error.message ||
                                 "Something went wrong. Please try again."}
                             </p>
-                            <p className="text-xs text-muted-foreground">
-                              If this is on Vercel, add GEMINI_API_KEY in
-                              Project → Settings → Environment Variables.
-                            </p>
+                            {!error.message.includes("Billing") && (
+                              <p className="text-xs text-muted-foreground">
+                                Check your GEMINI_API_KEY configuration in your deployment settings.
+                              </p>
+                            )}
                             <Button
                               onClick={() => regenerate()}
                               variant="ghost"

@@ -36,8 +36,8 @@ export async function POST(req: Request) {
       );
     }
 
-    // Debug log for configuration (will appear in Vercel logs)
-    console.log("Chat API initialized. Key exists:", !!apiKey, "Using model: gemini-1.5-flash-latest");
+    // Debug log for configuration
+    console.log("Chat API initialized. Key exists:", !!apiKey, "Using model: gemini-2.5-flash");
 
     const google = createGoogleGenerativeAI({ apiKey });
 
@@ -69,8 +69,21 @@ ${knowledgeBase}
     });
 
     return result.toUIMessageStreamResponse();
-  } catch (error) {
+  } catch (error: any) {
     console.error("Chat API Error:", error);
+
+    // Explicit handling for Quota/Rate Limit errors
+    if (error?.statusCode === 429 || error?.status === 429 || error?.message?.includes("Quota exceeded")) {
+      return new Response(
+        JSON.stringify({
+          error: "Regional Quota Exceeded. To fix this permanently on Render/Vercel, please enable 'Pay-as-you-go' billing in your Google AI Studio settings. This separates your project from the shared public IP quota.",
+        }),
+        {
+          status: 429,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
 
     return new Response(
       JSON.stringify({
