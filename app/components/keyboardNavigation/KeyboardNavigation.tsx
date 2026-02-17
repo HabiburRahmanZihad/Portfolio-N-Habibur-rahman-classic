@@ -39,7 +39,7 @@ const KeyboardNavigation = () => {
         );
       }
       if (e.shiftKey && e.key.toLocaleLowerCase() === "w") {
-        router.push("https://wa.me/8801735166610");
+        router.push("https://wa.me/88013294535**");
       }
       if (e.shiftKey && e.key.toLocaleLowerCase() === "t") {
         router.push("https://x.com/HabiburRahmanZ");
