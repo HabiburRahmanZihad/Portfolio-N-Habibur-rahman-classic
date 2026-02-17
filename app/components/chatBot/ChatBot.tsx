@@ -206,7 +206,7 @@ export default function Chat() {
                         width={48}
                         height={48}
                         className="object-cover border-2 border-gray-300 bg-center rounded-full"
-                        src={"/logo.png"}
+                        src={"/logo/withBorder.png"}
                         alt="Logo"
                       />
                     </Avatar>
@@ -268,7 +268,7 @@ export default function Chat() {
                                   width={48}
                                   height={48}
                                   className="object-cover border-2 border-gray-300 bg-center rounded-full"
-                                  src={"/logo.png"}
+                                  src={"/logo/withBorder.png"}
                                   alt="Logo"
                                 />
                               )}
@@ -335,7 +335,7 @@ export default function Chat() {
                             width={48}
                             height={48}
                             className="object-cover border-2 border-gray-300 bg-center rounded-full"
-                            src={"/logo.png"}
+                            src={"/logo/withBorder.png"}
                             alt="Logo"
                           />
                         </Avatar>
