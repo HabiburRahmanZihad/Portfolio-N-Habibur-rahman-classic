@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Habibur Rahman Zihad",
   description: "Portfolio of Habibur Rahman Zihad - Full Stack Developer",
   icons: {
-    icon: "/logo.ico",
+    icon: "/logo/noBorder.png",
   },
 };
 
