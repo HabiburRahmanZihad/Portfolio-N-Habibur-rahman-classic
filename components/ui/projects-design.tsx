@@ -1,26 +1,13 @@
 "use client";
-import {
-  ChevronsDownUpIcon,
-  ChevronsUpDownIcon,
-  CodeXmlIcon,
-} from "lucide-react";
 import React from "react";
-import ReactMarkdown from "react-markdown";
+import Image from "next/image";
+import Link from "next/link";
 import { GoArrowRight } from "react-icons/go";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
 import { Project } from "@/app/components/projects/Projects";
-import Link from "next/link";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
 import { motion } from "framer-motion";
 import { BiWorld } from "react-icons/bi";
-const iconMap = {
-  project: CodeXmlIcon,
-} as const;
+import { TbBrandGithub } from "react-icons/tb";
 
 export function WorkExperience({
   className,
@@ -30,15 +17,15 @@ export function WorkExperience({
   experiences: Project[];
 }) {
   return (
-    <div className={cn("bg-background mt-6", className)}>
+    <div className={cn("space-y-8 mt-10", className)}>
       {experiences.map((project, index) => (
-        <ExperienceItem key={project.id} project={project} index={index} />
+        <ProjectCard key={project.id} project={project} index={index} />
       ))}
     </div>
   );
 }
 
-export function ExperienceItem({
+export function ProjectCard({
   project,
   index,
 }: {
@@ -47,134 +34,82 @@ export function ExperienceItem({
 }) {
   return (
     <motion.div
-      className="space-y-4 py-4"
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.2, ease: "easeOut", delay: index * 0.05 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group relative flex flex-col lg:flex-row gap-8 p-6 rounded-[32px] border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 hover:border-neutral-400 dark:hover:border-neutral-700 transition-all duration-500 hover:shadow-2xl"
     >
-      <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
-        <ExperiencePositionItem project={project} />
+      {/* Project Image Container */}
+      <div className="w-full lg:w-[45%] aspect-[16/10] relative rounded-2xl overflow-hidden border border-neutral-100 dark:border-neutral-800 shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
+        <Image
+          src={project.img}
+          alt={project.name}
+          fill
+          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+        />
+        <div className="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-colors duration-500" />
+      </div>
+
+      {/* Details Container */}
+      <div className="flex-1 space-y-5 flex flex-col justify-center">
+        <div className="space-y-2">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <h3 className="text-2xl font-black tracking-tight text-neutral-900 dark:text-neutral-100">
+              {project.name}
+              <span className="ml-3 text-sm font-medium text-neutral-400 dark:text-neutral-500 lowercase">
+                {project.status.find(s => s.name === "Duration")?.duration || ""}
+              </span>
+            </h3>
+          </div>
+          <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed line-clamp-3 font-medium">
+            {project.description}
+          </p>
+        </div>
+
+        {/* Tech Stack Badges */}
+        <div className="flex flex-wrap gap-2">
+          {project.techStack.slice(0, 6).map((tech, i) => (
+            <span
+              key={i}
+              className="px-3 py-1 text-[10px] font-black uppercase tracking-wider rounded-full border border-neutral-200 dark:border-neutral-800 text-neutral-500 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-900"
+            >
+              {tech}
+            </span>
+          ))}
+          {project.techStack.length > 6 && (
+            <span className="px-2 py-1 text-[10px] font-black text-neutral-400">+{project.techStack.length - 6} more</span>
+          )}
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <a
+            href={project.clientLink}
+            target="_blank"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-black rounded-full font-bold text-xs transition-all hover:scale-105 active:scale-95 shadow-md"
+          >
+            <TbBrandGithub size={16} />
+            GitHub
+          </a>
+          <a
+            href={project.liveLink}
+            target="_blank"
+            className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-neutral-900 dark:border-neutral-100 text-neutral-900 dark:text-neutral-100 rounded-full font-bold text-xs transition-all hover:bg-neutral-900 hover:text-white dark:hover:bg-neutral-100 dark:hover:text-black shadow-sm"
+          >
+            <BiWorld size={16} />
+            Live Preview
+          </a>
+          <Link
+            href={`/projects/${project.name.toLowerCase().replace(/\s+/g, "-")}`}
+            className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-neutral-900 dark:border-neutral-100 text-neutral-900 dark:text-neutral-100 rounded-full font-bold text-xs transition-all hover:bg-neutral-900 hover:text-white dark:hover:bg-neutral-100 dark:hover:text-black shadow-sm"
+          >
+            Details
+            <GoArrowRight size={16} />
+          </Link>
+        </div>
       </div>
     </motion.div>
-  );
-}
-
-export function ExperiencePositionItem({ project }: { project: Project }) {
-  const ExperienceIcon = iconMap["project"];
-
-  return (
-    <Collapsible defaultOpen={false} asChild>
-      <div className="relative group/card transition-all duration-500 mb-4">
-        <CollapsibleTrigger
-          className={cn(
-            "group/experience not-prose block w-full text-left select-none relative z-10 holo-card",
-            "p-5 rounded-3xl border border-neutral-200/50 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-md hover:border-blue-500/30 dark:hover:border-blue-500/20 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-700 hover:-translate-y-1"
-          )}
-        >
-          <div className="flex items-center gap-6">
-            {/* Icon with Dynamic Glow */}
-            <div className="relative flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 text-blue-600 dark:text-blue-400 transition-all group-hover/experience:rotate-12 group-hover/experience:scale-110 duration-500 shadow-sm border border-blue-100/50 dark:border-blue-800/20">
-              <ExperienceIcon className="size-7" />
-            </div>
-
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between gap-2">
-                <h4 className="text-xl font-black tracking-tight text-gradient-boss truncate">
-                  {project.name}
-                </h4>
-
-                <div className="flex items-center gap-3 shrink-0">
-                  <Link
-                    href={`project/${project.name.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="flex items-center gap-1.5 text-xs font-black text-neutral-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-[0.2em]"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    Details
-                    <GoArrowRight size={14} />
-                  </Link>
-
-                  <div className="h-4 w-[1px] bg-neutral-200 dark:bg-neutral-800" />
-
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        className="rounded-full p-2 text-neutral-500 transition-all hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:scale-110"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <BiWorld size={20} />
-                      </a>
-                    </TooltipTrigger>
-                    <TooltipContent side="top">
-                      <p className="text-[10px] font-black uppercase tracking-widest">Live Experience</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </div>
-              </div>
-
-              {/* Meta Tags */}
-              <div className="flex items-center gap-4 mt-2 text-xs font-black uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
-                <span className="text-blue-600 dark:text-blue-400">
-                  {project.projectType}
-                </span>
-                <span className="w-1 h-1 rounded-full bg-neutral-300 dark:bg-neutral-700" />
-                <span>{project.teamProject ? "Collaborative" : "Individual"}</span>
-              </div>
-            </div>
-
-            {/* Expand Indicator */}
-            <div className="text-neutral-300 group-hover/experience:text-blue-500 transition-all duration-500 transform group-hover/experience:translate-x-1">
-              <ChevronsDownUpIcon className="size-6 hidden group-data-[state=open]/experience:block animate-pulse" />
-              <ChevronsUpDownIcon className="size-6 block group-data-[state=open]/experience:none" />
-            </div>
-          </div>
-        </CollapsibleTrigger>
-
-        <CollapsibleContent className="overflow-hidden duration-500 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down mt-2">
-          <div className="pl-[88px] pr-5 pb-6 space-y-8 relative before:absolute before:left-12 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-blue-500/20 before:to-transparent">
-            <Prose>
-              <div className="text-neutral-600 dark:text-neutral-400 text-base leading-relaxed font-light">
-                <ReactMarkdown>
-                  {project.description}
-                </ReactMarkdown>
-              </div>
-            </Prose>
-
-            <div className="space-y-4">
-              <h3 className="text-xs font-black uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 flex items-center gap-3">
-                <span className="w-8 h-[1px] bg-blue-500/30" />
-                Core Technologies
-              </h3>
-              <ul className="flex flex-wrap gap-2.5">
-                {project.techStack.map((skill, index) => (
-                  <li key={index}>
-                    <Skill className="px-3 py-1 bg-white dark:bg-white/[0.03] border-blue-500/10 dark:border-white/5 text-blue-600 dark:text-blue-400 shadow-sm font-black text-[10px] uppercase tracking-wider">
-                      {skill}
-                    </Skill>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-neutral-50/50 dark:bg-white/[0.01] border border-neutral-100 dark:border-white/5 space-y-4">
-              <h3 className="text-xs font-black uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500">
-                Key Deliverables
-              </h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {project.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm text-neutral-600 dark:text-neutral-400 group/feature">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500/40 group-hover/feature:bg-blue-500 transition-colors shrink-0 shadow-[0_0_8px_rgba(59,130,246,0)] group-hover/feature:shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
-                    <span className="font-light">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </CollapsibleContent>
-      </div>
-    </Collapsible>
   );
 }
 

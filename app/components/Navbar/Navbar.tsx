@@ -32,6 +32,11 @@ const Navbar = () => {
       href: "/",
     },
     {
+      id: 4,
+      label: "Projects",
+      href: "/projects",
+    },
+    {
       id: 2,
       label: "Blogs",
       href: "/blogs",
@@ -93,8 +98,8 @@ const Navbar = () => {
                 )}
                 <span
                   className={`relative z-10 text-sm font-medium transition-colors ${item.href === pathname
-                      ? "text-blue-600 dark:text-blue-400"
-                      : "text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white"
+                    ? "text-blue-600 dark:text-blue-400"
+                    : "text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white"
                     }`}
                 >
                   {item.label}
