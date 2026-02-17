@@ -1,4 +1,3 @@
-import React from "react";
 import BlogPosts from "../components/BlogPosts/BlogPosts";
 import fs from "fs";
 import matter from "gray-matter";

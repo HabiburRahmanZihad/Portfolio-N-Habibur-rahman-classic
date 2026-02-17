@@ -14,7 +14,7 @@ const hankenGrotesk = Hanken_Grotesk({
 
 export const metadata: Metadata = {
   title: "Habibur Rahman Zihad",
-  description: "Portfolio of Habibur Rahman Zihad - MERN Stack Developer",
+  description: "Portfolio of Habibur Rahman Zihad - Full Stack Developer",
   icons: {
     icon: "/logo.ico",
   },
